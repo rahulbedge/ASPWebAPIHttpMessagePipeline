@@ -13,7 +13,9 @@ namespace ASPWebAPIHttpMessagePipeline
             config.MapHttpAttributeRoutes();
 
             // add the delegating message handler. 
-            config.MessageHandlers.Add(new APIResponseTimeHandler()); 
+            config.MessageHandlers.Add(new APIResponseTimeHandler());
+
+            //config.Filters.Add(new RouteTimerFilterAttribute()); 
         }
     }
 }

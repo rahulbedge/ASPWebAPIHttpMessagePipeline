@@ -98,6 +98,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Handlers\APIResponseTimeHandler.cs" />
+    <Compile Include="Handlers\CacheFilter.cs" />
+    <Compile Include="Handlers\TimerFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

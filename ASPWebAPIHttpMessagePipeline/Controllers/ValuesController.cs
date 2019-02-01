@@ -1,8 +1,7 @@
-﻿using System;
+﻿using ASPWebAPIHttpMessagePipeline.Handlers;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+using System.Diagnostics;
 using System.Web.Http;
 
 namespace ASPWebAPIHttpMessagePipeline.Controllers
@@ -12,15 +11,19 @@ namespace ASPWebAPIHttpMessagePipeline.Controllers
     {
         // GET: api/Values
         [Route("")]
+        [CacheFilter(ClientCacheControl.Private, 10)]
+        [TimerFilter]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            Trace.WriteLine ("Method executed"); 
+            return new string[] { "value1", "value2" , DateTime.Now.ToString() };
         }
 
         // GET: api/Values/5
+        [Route("{id}")]
         public string Get(int id)
         {
-            return "value";
+            return "value " + id.ToString();
         }
 
         // POST: api/Values
